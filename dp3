@@ -1,0 +1,57 @@
+import heapq
+
+# Creating tree nodes
+class NodeTree:
+    def __init__(self, freq, symbol, left=None, right=None):
+        self.freq = freq
+        self.symbol = symbol
+        self.left = left
+        self.right = right
+
+    def children(self):
+        return (self.left, self.right)
+    
+    def __lt__(self, other):
+        # Comparator function for priority queue
+        return self.freq < other.freq
+
+# Main function implementing Huffman coding
+def huffman_code_tree(node, binString=''):
+    if isinstance(node.symbol, str):  # Leaf node
+        return {node.symbol: binString}
+    
+    (l, r) = node.children()
+    d = dict()
+    d.update(huffman_code_tree(l, binString + '0'))
+    d.update(huffman_code_tree(r, binString + '1'))
+    return d
+
+# Input the string
+string = input("ENTER String: ")
+
+# Calculating frequency
+freq = {}
+for c in string:
+    freq[c] = freq.get(c, 0) + 1
+
+# Creating the priority queue (min-heap) with frequency and node
+heap = [NodeTree(frequency, symbol) for symbol, frequency in freq.items()]
+heapq.heapify(heap)
+
+# Building the Huffman Tree
+while len(heap) > 1:
+    left = heapq.heappop(heap)
+    right = heapq.heappop(heap)
+    merged = NodeTree(left.freq + right.freq, None, left, right)
+    heapq.heappush(heap, merged)
+
+# Generating Huffman codes
+huffmanCode = huffman_code_tree(heap[0])
+
+# Displaying the result
+print(' Char | Huffman code ')
+print('----------------------')
+for char, frequency in freq.items():
+    print(f' {char!r:4} | {huffmanCode[char]}')
+emess="".join(huffmanCode[char] for char in string)
+print(emess)
