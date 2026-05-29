@@ -739,7 +739,7 @@ export default function App() {
                 </span>
               </div>
               <p className="text-[11px] text-slate-500 leading-normal font-medium">
-                Trained utilizing a Random Forest Classifier (estimators=200, depth=10) on cross-validated age, splits, and ticket luxury boundaries. Achieving <strong>~82.3% cross-validation accuracy score</strong>.
+                Demonstrates a Titanic survival classification workflow using passenger age, class, fare, family size, and gender features. The live portal uses local prediction logic for interactive review.
               </p>
               <div className="bg-slate-50 border border-slate-150 rounded-lg p-2 font-mono text-[9.5px] leading-relaxed text-slate-700">
                 z = 0.5 + 2.2(Female) - 1.8(Male) + 1.3(1st Class) - 1.2(3rd Class) + 0.8(Child) + 0.4(Mid Family) - 1.3(Big Family)

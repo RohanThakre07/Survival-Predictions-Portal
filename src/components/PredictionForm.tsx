@@ -792,7 +792,7 @@ export function PredictionForm({ task, prefillValues, onClearPrefill, datasetTex
             Empirical Model Inference Simulator
           </h3>
           <p className="text-xs text-gray-500 mt-0.5">
-            Test and run real-time predictive predictions on the analyzed dataset frameworks
+            Test task inputs and review local prediction outputs for the selected dataset
           </p>
         </div>
         <motion.button
