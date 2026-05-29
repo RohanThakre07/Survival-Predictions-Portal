@@ -657,9 +657,9 @@ export function PredictionForm({ task, prefillValues, onClearPrefill, datasetTex
 
     // Step-by-step mathematical progress animation steps
     const simulationSteps = [
-      { p: 20, msg: "Aligning test feature parameters with original Notebook splits..." },
-      { p: 50, msg: "Applying verified mathematical coefficient boundaries..." },
-      { p: 80, msg: "Compiling decision log traces and R-squared offsets..." },
+      { p: 20, msg: "Preparing input features for the selected task..." },
+      { p: 50, msg: "Applying local prediction rules and feature weights..." },
+      { p: 80, msg: "Preparing explanation details and confidence output..." },
       { p: 95, msg: "Formulating confidence parameters & visual report..." },
       { p: 100, msg: "Success! Complete numerical resolution." }
     ];
@@ -704,7 +704,7 @@ export function PredictionForm({ task, prefillValues, onClearPrefill, datasetTex
       return {
         prediction: survived ? "Survived (1)" : "Deceased (0)",
         confidence: Math.round(prob * 100) / 100,
-        explanation: `Simulated via Random Forest parameters (max_depth=10, estimators=200): sex: ${vals.Sex} (strongly weighted attribute) combined with class ${vals.Pclass} are the primary indicators of passenger status. Solitary travelers have slight survivability penalization, while families of moderate size (<4) enjoy a survival advantage. Exactly reflects GridSearchCV splits.`,
+        explanation: `Estimated with local classification-style rules: sex: ${vals.Sex} combined with class ${vals.Pclass} are treated as primary indicators of passenger status. Solitary travelers receive a slight negative adjustment, while moderate family size receives a positive adjustment. Use the notebook workflow for formal model training and evaluation.`,
         featuresAnalyzed: vals
       };
     } else if (taskId === "task2") {

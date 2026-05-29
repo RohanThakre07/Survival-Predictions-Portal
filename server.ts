@@ -133,7 +133,7 @@ app.get("/api/file-content/:filename", (req, res) => {
   }
 });
 
-// Endpoint: Model predictions with Server-Side Analytics client (High-Fidelity Deterministic Simulator)
+// Endpoint: local prediction demo used by the interactive portal.
 app.post("/api/predict", async (req, res) => {
   const { task, inputs } = req.body;
 
@@ -192,7 +192,7 @@ function computeOfflinePredictionOnServer(taskInput: any, inputs: any) {
     return {
       prediction: survived ? "Survived (1)" : "Deceased (0)",
       confidence: Math.round(prob * 100) / 100,
-      explanation: `Calculated from Random Forest Classifier weights (max_depth=10, estimators=200): sex: ${inputs.Sex} (strongly weighted parameter) combined with ticket class ${inputs.Pclass} are the primary indicators of passenger status. Solitary travelers have subtle negative weights, whereas families of moderate size (<4) possess higher survival coefficient advantages. Exactly reflects GridSearchCV splits in 'Task 1 Titanic_Survival.ipynb'.`,
+      explanation: `Estimated from local classification-style rules: sex: ${inputs.Sex} combined with ticket class ${inputs.Pclass} are treated as primary indicators of passenger status. Solitary travelers receive a slight negative adjustment, while moderate family size receives a positive adjustment. For formal ML evaluation, use the linked Titanic notebook and a reproducible train/test workflow.`,
       featuresAnalyzed: inputs
     };
   } else if (isMovie) {

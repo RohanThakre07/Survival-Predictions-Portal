@@ -125,7 +125,7 @@ export function Dp3Explorer({ sourceCode }: Dp3ExplorerProps) {
             </div>
             
             <p className="text-[11px] text-slate-500 leading-normal font-semibold">
-              Enter any sentence or word parameters. The local compiler will analyze the frequency probabilities of each single character and re-encode with high-fidelity prefix tree steps.
+              Enter any sentence or word parameters. The local compiler will analyze the frequency probabilities of each single character and re-encode them into prefix tree steps.
             </p>
 
             <div className="space-y-2">

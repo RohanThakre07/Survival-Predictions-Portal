@@ -538,7 +538,7 @@ export default function App() {
                     </div>
                     <div>
                       <h2 className="text-base font-black text-slate-900 font-sans tracking-tight">DP Assignment 3: Huffman Code Tree Synthesizer</h2>
-                      <p className="text-xs text-slate-500 mt-0.5 font-semibold">Constructing high-fidelity optimal prefix codes based on character occurrence rates</p>
+                      <p className="text-xs text-slate-500 mt-0.5 font-semibold">Constructing prefix-code examples based on character occurrence rates</p>
                     </div>
                   </div>
 
@@ -718,7 +718,7 @@ export default function App() {
                 </div>
                 <span className="font-semibold text-slate-800">Empirical Coefficients</span>
               </div>
-              <span className="font-mono text-[#8e8e93] font-semibold">GridSearchCV Optimized</span>
+              <span className="font-mono text-[#8e8e93] font-semibold">Notebook-backed demo</span>
             </div>
           </div>
         </div>
